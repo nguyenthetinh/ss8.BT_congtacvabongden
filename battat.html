@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Cong tac</h3>
+<button type="button" onclick="battat()">Battat</button>
+<h3>Bong den</h3>
+<p>Trang thai: <span id="rs"></span></p>
+<script>
+    let ElectricLamp = function () {
+        this.Status=function () {
+            this.switch=false;
+            return this.switch.getstatus()
+        }
+
+
+    };
+    let SwitchButton = function () {
+        this.turnOff=function () {
+            if(this.status)
+                this.status=false;
+        };
+        this.turnOn=function () {
+            if(!this.status)
+                this.status=true;
+        };
+        this.getstatus =function () {
+            return this.Status;
+        };
+
+    }
+    let bongden = new ElectricLamp();
+    let congtac = new SwitchButton();
+    function battat(){
+        if (congtac.status)
+            congtac.turnOff();
+        else
+            congtac.turnOn();
+        document.getElementById("rs").innerHTML=congtac.status;
+    }
+</script>
+</body>
+</html>
